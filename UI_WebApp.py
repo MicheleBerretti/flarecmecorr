@@ -52,11 +52,12 @@ if pw == st.secrets["PASSWORD"]:
                 cycle_num = 1
     
             matched_events_temp = matched_events[(matched_events["time_delta"] < time_greater) & (matched_events["cycle"] == cycle_num) & (matched_events["time_delta"] > time_smaller)]
-    
-            P_corr = spst.pearsonr(matched_events_temp[value_1], matched_events_temp[value_2])
-            st.write("Pearson Correlation Coefficient: ", P_corr[0])
-            st.write("p-value: ", P_corr[1])
-        
+            try:
+                P_corr = spst.pearsonr(matched_events_temp[value_1], matched_events_temp[value_2])
+                st.write("Pearson Correlation Coefficient: ", P_corr[0])
+                st.write("p-value: ", P_corr[1])
+            except:
+                st.write("Select a valid array")
         else:
             P_corr = spst.pearsonr(matched_events[value_1], matched_events[value_2])
             st.write("Pearson Correlation Coefficient: ", P_corr[0])
