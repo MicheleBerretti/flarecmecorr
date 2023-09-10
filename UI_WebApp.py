@@ -45,7 +45,7 @@ if pw == st.secrets["PASSWORD"]:
             st.write("Use min and max to not use a time filter")
     
     
-            cycle = st.select_slider("Select the period of the solar cycle:", options=["Min", "Max"], key="ss1")
+            cycle = st.radio("Select the period of the solar cycle:", ["Min", "Max"], key="ss1")
             if cycle == "Min":
                 cycle_num = 0
             elif cycle == "Max":
@@ -82,7 +82,7 @@ if pw == st.secrets["PASSWORD"]:
             st.write("Use min and max to not use a time filter")
     
     
-            cycle = st.select_slider("Select the period of the solar cycle:", options=["Min", "Max"], key="ss2")
+            cycle = st.radio("Select the period of the solar cycle:", ["Min", "Max"], key="ss2")
             if cycle == "Min":
                 cycle_num = 0
             elif cycle == "Max":
