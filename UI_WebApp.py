@@ -31,14 +31,14 @@ if pw == st.secrets["PASSWORD"]:
     
         time_delta = np.array(matched_events["time_delta"])
     
-        value_1 = st.selectbox('Select the first parameter', matched_events.columns)
-        value_2 = st.selectbox('Select the second parameter', matched_events.columns)
+        value_1 = st.selectbox('Select the first parameter', matched_events.columns, key="sb1")
+        value_2 = st.selectbox('Select the second parameter', matched_events.columns, key="sb2")
     
         filter = st.checkbox('Do you want to use any filters?', key="filter_corr")
         if filter:
     
-            time_smaller = st.number_input('Select T0 (in minutes) for flare start (can be negative if cme is before flare)')
-            time_greater = st.number_input('Select T1 (in minutes) for flare start (can be negative if cme is before flare) WARNING: T1 > T0')
+            time_smaller = st.number_input('Select T0 (in minutes) for flare start (can be negative if cme is before flare)', key="ti1")
+            time_greater = st.number_input('Select T1 (in minutes) for flare start (can be negative if cme is before flare) WARNING: T1 > T0', key="ti2")
     
             st.write("Minimum T: ", np.min(time_delta))
             st.write("Maximum T: ", np.max(time_delta))
@@ -69,13 +69,13 @@ if pw == st.secrets["PASSWORD"]:
     
     with tab3:
     
-        plot_param = st.selectbox("Select the parameter to plot", matched_events.columns)
+        plot_param = st.selectbox("Select the parameter to plot", matched_events.columns, key="sb2")
     
         filter = st.checkbox('Do you want to use any filters?', key="filter_plots")
         if filter:
     
-            time_smaller = st.number_input('Select T0 (in minutes) for flare start (can be negative if cme is before flare)')
-            time_greater = st.number_input('Select T1 (in minutes) for flare start (can be negative if cme is before flare) WARNING: T1 > T0')
+            time_smaller = st.number_input('Select T0 (in minutes) for flare start (can be negative if cme is before flare)', key="ni1")
+            time_greater = st.number_input('Select T1 (in minutes) for flare start (can be negative if cme is before flare) WARNING: T1 > T0', key="ni2")
     
             st.write("Minimum T: ", np.min(time_delta))
             st.write("Maximum T: ", np.max(time_delta))
