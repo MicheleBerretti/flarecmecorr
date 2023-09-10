@@ -9,7 +9,7 @@ import seaborn as sns
 st.title('Flare and CME Correlation')
 pw = st.text_input("Insert password")
 
-if pw == st.secrets["PASSWORD"]
+if pw == st.secrets["PASSWORD"]:
 
     matched_events = pd.read_csv('matched_events.csv')
     matched_events["time_delta"] = matched_events["time_delta"].astype('timedelta64[s]')
