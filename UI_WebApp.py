@@ -69,7 +69,7 @@ if pw == st.secrets["PASSWORD"]:
     
     with tab3:
     
-        plot_param = st.selectbox("Select the parameter to plot", matched_events.columns, key="sb2")
+        plot_param = st.selectbox("Select the parameter to plot", matched_events.columns, key="sb3")
     
         filter = st.checkbox('Do you want to use any filters?', key="filter_plots")
         if filter:
