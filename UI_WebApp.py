@@ -59,9 +59,12 @@ if pw == st.secrets["PASSWORD"]:
             except:
                 st.write("Select a valid array")
         else:
-            P_corr = spst.pearsonr(matched_events[value_1], matched_events[value_2])
-            st.write("Pearson Correlation Coefficient: ", P_corr[0])
-            st.write("p-value: ", P_corr[1])
+            try:
+                P_corr = spst.pearsonr(matched_events[value_1], matched_events[value_2])
+                st.write("Pearson Correlation Coefficient: ", P_corr[0])
+                st.write("p-value: ", P_corr[1])
+            except:
+                st.write("Select a valid array")
     
     
     with tab3:
